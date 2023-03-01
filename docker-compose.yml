@@ -2,7 +2,7 @@ version: '2'
 
 services:
   ctfd:
-    build: .
+    image: us.gcr.io/pctf23-test/ctfd23:v1
     user: root
     restart: always
     ports:
@@ -19,12 +19,9 @@ services:
     volumes:
       - .data/CTFd/logs:/var/log/CTFd
       - .data/CTFd/uploads:/var/uploads
-      - .:/opt/CTFd:ro
+        # - .:/opt/CTFd:ro
     depends_on:
       - db
-    networks:
-        default:
-        internal:
 
   nginx:
     image: nginx:stable
@@ -46,8 +43,6 @@ services:
       - MYSQL_DATABASE=ctfd
     volumes:
       - .data/mysql:/var/lib/mysql
-    networks:
-        internal:
     # This command is required to set important mariadb defaults
     command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
 
@@ -56,10 +51,3 @@ services:
     restart: always
     volumes:
     - .data/redis:/data
-    networks:
-        internal:
-
-networks:
-    default:
-    internal:
-        internal: true
