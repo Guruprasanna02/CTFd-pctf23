@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Tourney:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree');
+
+[class^='nav']{
+	font-family: 'Bai Jamjuree';
+}
+
 .hljs {
     display: block;
     overflow-x: auto;
@@ -4138,9 +4144,9 @@ input[type=submit].btn-block {
     cursor: default
 }
 
-.navbar-brand {
+/* .navbar-brand {
 	font-family: 'Tourney', cursive;
-}
+} */
 
 .nav-tabs {
     border-bottom: 1px solid #dee2e6
@@ -4266,7 +4272,8 @@ input[type=submit].btn-block {
     flex-basis: 100%;
     flex-grow: 1;
     align-items: center;
-	font-family: 'Tourney', cursive;
+	/* font-family: 'Tourney', cursive; */
+
 }
 
 .navbar-toggler {
