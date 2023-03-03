@@ -1,8 +1,8 @@
-version: '2'
+version: '3'
 
 services:
   ctfd:
-    image: us.gcr.io/pctf23-test/ctfd23:v1
+    build: .
     user: root
     restart: always
     ports:
@@ -19,19 +19,19 @@ services:
     volumes:
       - .data/CTFd/logs:/var/log/CTFd
       - .data/CTFd/uploads:/var/uploads
-        # - .:/opt/CTFd:ro
+      - .:/opt/CTFd:ro
     depends_on:
       - db
 
-  nginx:
-    image: nginx:stable
-    restart: always
-    volumes:
-      - ./conf/nginx/http.conf:/etc/nginx/nginx.conf
-    ports:
-      - 80:80
-    depends_on:
-      - ctfd
+  # nginx:
+  #   image: nginx:stable
+  #   restart: always
+  #   volumes:
+  #     - ./conf/nginx/http.conf:/etc/nginx/nginx.conf
+  #   ports:
+  #     - 80:80
+  #   depends_on:
+  #     - ctfd
 
   db:
     image: mariadb:10.4.12

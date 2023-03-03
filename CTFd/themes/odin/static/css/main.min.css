@@ -4138,6 +4138,10 @@ input[type=submit].btn-block {
     cursor: default
 }
 
+.navbar-brand {
+	font-family: 'Tourney', cursive;
+}
+
 .nav-tabs {
     border-bottom: 1px solid #dee2e6
 }
@@ -4261,7 +4265,8 @@ input[type=submit].btn-block {
 .navbar-collapse {
     flex-basis: 100%;
     flex-grow: 1;
-    align-items: center
+    align-items: center;
+	font-family: 'Tourney', cursive;
 }
 
 .navbar-toggler {
